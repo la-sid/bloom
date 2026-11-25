@@ -1,0 +1,9 @@
+How to use this font's features?
+
+1. Activate standart ligatures! AND kerning (on ms word office)
+2. Use DOUBLE "|" to access beautyful dot. ex: "a"|| => "a" (with beutiful dot)
+2. Use TRIPLE "|" to access CENTER dot. ex: "a"||| => "a" (with CENTER dot)
+3. Use tripple space to access awesome "swash"
+
+Dear
+Prast Art.

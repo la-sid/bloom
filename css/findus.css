@@ -1,0 +1,117 @@
+* {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../assets/images/top-view-blue-monday-concept-composition-with-telephone.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+
+}
+
+.back img {
+    width: 60px;
+
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    width: 65%;
+    height: 70vh;
+    margin-left: 350px;
+    font-size: 17px;
+    margin-top: 40px;
+    border-radius: 20px;
+    /* box-shadow: 8px 8px 8px rgb(31, 52, 62); */
+}
+
+.container h1 {
+    padding-top: 20px;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contactcards {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.cardleft {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* align-items: center; */
+    text-align: left;
+    padding: 40px;
+    color: #555;
+    margin: 26px;
+}
+
+.cardleft img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+
+}
+
+.cardleft .desc {
+    line-height: 1.6;
+}
+
+.cardright {
+    flex: 1;
+    padding: 10px 10px;
+    margin-top: 55px;
+    margin-right: 20px;
+
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+input,
+textarea {
+    width: 80%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    all: unset;
+    width: 75%;
+    padding: 10px;
+    background-color: #a94b3f;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+
+}
+button:hover {
+  background-color: #8d3b32;
+}
+
+@media (max-width: 768px) {
+  .contactcards {
+    flex-direction: column;
+  }
+  .contactleft,
+  .contactright {
+    width: 100%;
+  }
+  .container {
+    padding: 30px 20px;
+  }
+}
