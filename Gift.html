@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift page</title>
+</head>
+<style>
+    @font-face {
+        font-family: Breakdown;
+        src: url(./assets/fonts/breakdown_pg/Breakdown\ PG\ Bold.otf);
+    }
+    body{
+        /* background-color: rgb(0, 0, 0); */
+        background-image: url(./assets/images/5f8074ebcae1dba28e4c9fae86188222.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 23;
+    }
+    body img{
+        width: 50px;
+    }
+    a{
+        text-decoration: none;
+    }
+    h1{
+        text-align: center;
+        font-size: 60px;
+        font-family: Breakdown ;
+        color: #603535;
+        /* text-shadow: 4px 4px 3px rgb(82, 81, 81); */
+    }
+   
+    
+    .cards{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px 40px;
+        gap: 40px;
+   
+    }
+
+    .card{
+        width: 20%;
+        height: 50vh;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid rgb(201, 201, 201);
+        box-shadow: 6px 6px 10px rgb(145, 138, 138);
+        padding: 12px;
+
+    }
+    .imagebox{
+        padding-left: 5px;
+        margin-top: 20px;
+        
+    }
+    .imagebox img{
+        width: 95%;
+        aspect-ratio: 9/8;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .cardcontent{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .cardcontent p{
+        line-height: 35px;
+        font-size: 18px;
+        font-weight:500;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .cardcontent img{
+        width: 28%;
+        height: 10vh;
+        margin-left: 100px;
+        margin-top: 5px;
+    }
+
+    
+</style>
+<body>
+    <a href="index.html"><img src="./assets/images/arrow-ios-back.svg" alt=""></a>
+    <h1>Deals / Gift Sets</h1>
+    <!-- <div class="searchbar">
+        <img src="./assets/icons/search.png" alt="">
+        <input type="text" placeholder="search here....">
+        <button>Search</button>
+    </div> -->
+    <div class="container">
+        <div class="cards">
+            <div class=" card card1">
+                <div class="imagebox">
+                    <img src="./assets/images/gift6.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Amber Glow Set<br>Rs.4,000.00</p>
+                    <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card2">
+                <div class="imagebox">
+                <img src="./assets/images/gift10.jpeg" alt="" >
+                </div>
+               <div class="cardcontent">
+                    <p>Soft Charm Mists Pack<br>Rs.6,500.00</p>
+                   <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card3">
+                <div class="imagebox">
+                <img src="./assets/images/gift4.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Golden Whisper Collection<br>Rs.6,999.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card4">
+                <div class="imagebox">
+                <img src="./assets/images/gift7.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Vanilla Dream Set<br>Rs.4,250.00</p>
+                    <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card5">
+                <div class="imagebox">
+                <img src="./assets/images/gift8.jpeg" alt="">
+                </div>
+                <div class="cardcontent">
+                    <p>Lost Claus <br>Rs.1,250.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card6">
+                <div class="imagebox">
+                <img src="./assets/images/gift9.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                  <p>Floral Mist Combo<br>Rs.4,799.00</p>
+                    <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card7">
+                <div class="imagebox">
+                <img src="./assets/images/gift5.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Midnight Woods Set<br>Rs.3,950.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card8">
+                <div class="imagebox">
+                <img src="./assets/images/gift1.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>ZenFlame Candles Pack of 6<br>Rs.10,550.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+             <div class=" card card8">
+                <div class="imagebox">
+                <img src="./assets/images/gift2.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Bloom Essence Trio <br>Rs.6,500.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+             <div class=" card card8">
+                <div class="imagebox">
+                <img src="./assets/images/gift12.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Velvet Aura Set<br>Rs.12,050.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+             <div class=" card card8">
+                <div class="imagebox">
+                <img src="./assets/images/gift3.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Cotton Cloud Set<br>Rs.5,500.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+             <div class=" card card8">
+                <div class="imagebox">
+                <img src="./assets/images/gift11.jpeg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Ocean Calm Collection<br>Rs.4,650.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

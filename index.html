@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Bloom</h1>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#main">Home</a></li>
+                <li>
+                    <select id="productSelect" onchange="openProductPage()">
+                        <option value="" disabled selected>Products</option>
+                        <option value="perfumes.html">Perfumes</option>
+                        <option value="bodyymist.html">Body Mist</option>
+                        <option value="Candles.html">Candles</option>
+                    </select>
+                </li>
+                <li><a href="Gift.html">Deals</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+                <li><a href="findus.html">Find us</a></li>
+            </ul>
+        </div>
+        <div class="auth">
+            <a href="addtocart.html"><img src="./assets/icons/shopping-cart.png" alt="" width="40px"></a>
+            <a href="wishlist.html" class="wish" target="_blank">Wishlist</a>
+        </div>
+    </nav>
+    <main id="main">
+    </main>
+    <section>
+        <div class="container">
+            <h1 class="title">Newly Launched</h1>
+            <div class="cards">
+                <div class="card card1">
+                    <div class="cardhead"><img src="./assets/images/p1.jpg" alt=""
+                            onmouseenter="src='./assets/images/Irresistible.jpg'"
+                            onmouseleave="src='./assets/images/p1.jpg'">
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cardbody">
+                            <h1>Irresistible</h1>
+                            <p>Playful fruity-floral with pear, rose, musk; joyful, feminine, charming fragrance perfect
+                                for daily confident wear.</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="cardhead"><img src="./assets/images/p3.jpg" alt=""
+                            onmouseenter="src='./assets/images/ValentinoDonna.jpg'"
+                            onmouseleave="src='./assets/images/p3.jpg'">
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cardbody">
+                            <h1>Valentino Donna</h1>
+                            <p>Powdery floral scent blending iris, rose, leather; elegant, ideal for romantic evenings
+                                and special occasions.</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card3">
+                    <div class="cardhead"><img src="./assets/images/p5.jpg" alt=""
+                            onmouseenter="src='./assets/images/You.jpg'" onmouseleave="src='./assets/images/p5.jpg'">
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cardbody">
+                            <h1>You (Emporio Armani)</h1>
+                            <p>Sweet mix of raspberry, rose, vanilla; symbolizes love, youth, passion, closeness; modern
+                                women’s romantic fragrance.</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card4">
+                    <div class="cardhead"><img src="./assets/images/p2.jpg" alt=""
+                            onmouseenter="src='./assets/images/Bombshell.jpg'"
+                            onmouseleave="src='./assets/images/p2.jpg'">>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cardbody">
+                            <h1>Bombshell (Victoria)</h1>
+                            <p>Sparkling fruity-floral perfume with passionfruit, peony, vanilla orchid;
+                                glamorous,fragrance for confident women.</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card5">
+                    <div class="cardhead"><img src="./assets/images/p4.jpg" alt=""
+                            onmouseenter="src='./assets/images/Sauvage.jpeg'"
+                            onmouseleave="src='./assets/images/p4.jpg'">>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cardbody">
+                            <h1>Sauvage (Dior)</h1>
+                            <p>Fresh masculine scent with bergamot, pepper, ambroxan; bold, adventurous, raw fragrance
+                                freedom, strength, charisma.</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card6">
+                    <div class="cardhead"><img src="./assets/images/p6.jpg" alt=""
+                            onmouseenter="src='./assets/images/ValentinoUomo.jpg'"
+                            onmouseleave="src='./assets/images/p6.jpg'">>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cardbody">
+                            <h1>Valentino Uomo</h1>
+                            <p>Warm gourmand fragrance with coffee, chocolate, leather; stylish, modern, reflecting
+                                Italian masculine elegance.</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="sliders">
+        <div class="slidecontainer">
+            <div class="slidemain">
+                <div class="sliderimagecontainer">
+                    <img src="./assets/images/slide1.png" alt="" width="100%" height="550px" id="slideimage">
+                </div>
+            </div>
+            <div class="leftbutton">
+                <button onclick="leftslide()"><img src="./assets/icons/left-arrow.png" alt="" width="60px"></button>
+            </div>
+            <div class="rightbutton">
+                <button onclick="rightslide()"><img src="./assets/icons/right-arrow.png" alt="" width="60px"></button>
+            </div>
+        </div>
+    </section>
+    <section>
+
+    </section>
+    <footer>
+            <h3> © 2025 Bloom Fragrances | All Rights Reserved</h3>
+    </footer>
+</body>
+
+<script>
+    
+function openProductPage() {
+  const select = document.getElementById('productSelect');
+  const page = select.value;
+
+  if (page) {
+    window.location.href = page; // ye selected page open karega
+  }
+}
+let images=["./assets/images/slide1.png","./assets/images/slide2.png","./assets/images/slide3.png","./assets/images/slide4.png","./assets/images/slide5.png"]
+
+let slideimage=document.querySelector('#slideimage')
+let count=0
+function leftslide(){
+    if(count>0){
+        count--
+        slideimage.src=images[count]
+    }else{
+        count=images.length-1
+        slideimage.src=images[count]
+    }
+}
+
+function rightslide(){
+    if(count<images.length-1){
+        count++
+        slideimage.src=images[count]
+    }else{
+        count=0
+        slideimage.src=images[count]
+    }
+}
+
+</script>
+
+</html>

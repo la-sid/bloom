@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfumes</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body img {
+      width: 50px;
+    }
+
+    body {
+      background-color: #fff8f0;
+      /* light creamy background */
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      color: #4a2c2a;
+      /* deep brown */
+    }
+
+    .searchbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      font-size: 20px;
+    }
+
+    .searchbar img {
+      width: 25px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+
+    .searchbar input {
+      width: 50%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      border: 1px solid black;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 50px;
+      width: 80%;
+      max-width: 1200px;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      background: #fdfdfd;
+      transition: 0.3s;
+      position: relative;
+      border: 1px solid white;
+      box-shadow: 2px 2px 6px black;
+    }
+
+    .cards:hover {
+      transform: scale(1.03);
+    }
+
+    .cards img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .icons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .icons img {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .icons .wish {
+      all: unset;
+      margin-left: 50px;
+      width: 50%;
+    }
+
+    .icons .wish img {
+      width: 50%;
+    }
+
+    .cart-btn {
+      background: #000;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .cart-btn:hover {
+      background: #444;
+    }
+
+    .content {
+      padding: 10px;
+    }
+
+    /* Sidebar Cart */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      transition: right 0.4s ease;
+      z-index: 1000;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cart-header h2 {
+      font-size: 20px;
+    }
+
+    .close-cart {
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .cart-items {
+      flex-grow: 1;
+      overflow-y: auto;
+      max-height: 70vh;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 5px;
+    }
+
+    .quantity-controls button {
+      width: 25px;
+      height: 25px;
+      border: none;
+      background: #000;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .buy-now {
+      background: #000;
+      color: white;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .buy-now:hover {
+      background: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="index.html"><img src="./assets/images/arrow-ios-back.svg" alt=""></a>
+  <h1>Bodymist</h1>
+
+  <div class="searchbar">
+    <img src="./assets/icons/search.png" alt="">
+    <input type="search" placeholder="Search here...">
+  </div>
+
+  <div class="container">
+    <div class="products">
+
+     
+      <div class="cards">
+        <img src="./assets/images/bodymist/b1.jpeg">
+        <div class="icons">
+          <button class="cart-btn" data-name="Fruity bloom" data-price="12500"
+            data-image="./assets/images/bodymist/b1.jpeg">Add to Cart</button>
+        </div>
+        <div class="content">
+          <h3>Fruity bloom</h3>
+          <p>Rs. 12,500</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b2.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Strawberryco" data-price="9800"
+            data-image="./assets/images/bodymist/b2.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Strawberryco</h3>
+          <p>Rs. 9,800</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b3.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="larado" data-price="11000"
+            data-image="./assets/images/bodymist/b3.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>larado</h3>
+          <p>Rs. 11,000</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b4.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Citrus Bloom" data-price="8600"
+            data-image="./assets/images/bodymist/b4.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Citrus Bloom</h3>
+          <p>Rs. 8,600</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b5.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Midnight Rose" data-price="13400"
+            data-image="./assets/images/bodymist/b5.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Midnight Rose</h3>
+          <p>Rs. 13,400</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b6.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Golden Sand" data-price="10200"
+            data-image="./assets/images/bodymist/b6.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Golden Sand</h3>
+          <p>Rs. 10,200</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b7.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Jasmine Mist" data-price="9300"
+            data-image="./assets/images/bodymist/b7.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Jasmine Mist</h3>
+          <p>Rs. 9,300</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b8.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Ocean Breeze" data-price="8700"
+            data-image="./assets/images/bodymist/b8.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Ocean Breeze</h3>
+          <p>Rs. 8,700</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b9.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Vanilla Sky" data-price="9500"
+            data-image="./assets/images/bodymist/b9.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Vanilla Sky</h3>
+          <p>Rs. 9,500</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b10.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Wild Lavender" data-price="8800"
+            data-image="./assets/images/bodymist/b10.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Wild Lavender</h3>
+          <p>Rs. 8,800</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b11.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Pure Bliss" data-price="10800"
+            data-image="./assets/images/bodymist/b11.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Pure Bliss</h3>
+          <p>Rs. 10,800</p>
+        </div>
+      </div>
+      <div class="cards"><img src="./assets/images/bodymist/b12.jpeg">
+        <div class="icons"><button class="cart-btn" data-name="Rose Dusk" data-price="9900"
+            data-image="./assets/images/bodymist/b12.jpeg">Add to Cart</button></div>
+        <div class="content">
+          <h3>Rose Dusk</h3>
+          <p>Rs. 9,900</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- 🛒 Sidebar Cart -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span class="close-cart" id="closeCart">&times;</span>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div class="total">
+        <span>Total:</span>
+        <span id="cartTotal">Rs. 0</span>
+      </div>
+      <button class="buy-now">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    const cartBtns = document.querySelectorAll('.cart-btn');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const closeCart = document.getElementById('closeCart');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+   
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+updateCart();
+
+    cartBtns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const name = btn.dataset.name;
+        const price = parseInt(btn.dataset.price);
+        const image = btn.dataset.image;
+
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.quantity++;
+        } else {
+          cart.push({ name, price, image, quantity: 1 });
+        }
+        updateCart();
+        cartSidebar.classList.add('active');
+      });
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartSidebar.classList.remove('active');
+    });
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <img src="${item.image}" alt="">
+          <div class="item-info">
+            <h4>${item.name}</h4>
+            <p>Rs. ${item.price}</p>
+            <div class="quantity-controls">
+              <button onclick="changeQty(${index}, -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQty(${index}, 1)">+</button>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+        cartItems.appendChild(div);
+      });
+
+      cartTotal.textContent = `Rs. ${total.toLocaleString()}`;
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+    }
+
+    function changeQty(index, delta) {
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+      updateCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+  </script>
+</body>
+
+</html>  

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+             background: url("./assets/images/logo/1.jpg") no-repeat center center/cover;
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="login-box">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+    
+        <button onclick="login()">Login</button>
+        
+        <p id="message"></p>
+    </div>
+    
+    <script>
+    function login() {
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+        let message = document.getElementById("message");
+        
+        // Simple validation
+        if (user === "Batool" && pass === "bz123") {
+            message.textContent = "Login Successful!";
+            message.className = "success";
+
+            // 👉 redirect only on success
+            setTimeout(() => {
+                window.location.href = "./index.html";
+            }, 500);
+            
+        } else {
+            message.textContent = "Invalid Username or Password";
+            message.className = "error";
+        }
+    }
+</script>
+
+</body>
+</html>

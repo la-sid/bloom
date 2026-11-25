@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Form</title>
+  <style>
+    body { font-family: Arial; padding:20px; }
+     body img {
+      width: 50px;
+    }
+
+    .form-box {
+      width:400px;
+      margin:auto;
+      padding:20px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      background:white;
+    }
+
+    input, textarea, select {
+      width:100%; 
+      padding:10px; 
+      margin-top:10px; 
+      border:1px solid #aaa; 
+      border-radius:5px;
+    }
+
+    button {
+      padding:10px;
+      width:100%;
+      margin-top:15px;
+      background:#4a2c2a;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    /* BILL POPUP DESIGN */
+    #billPopup {
+      display:none;
+      position:fixed; top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.6);
+      justify-content:center; align-items:center;
+    }
+
+    .bill-box {
+      background:white;
+      padding:30px;
+      width:400px;
+      border-radius:12px;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+      animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+      0% { transform:scale(0.5); opacity:0; }
+      100% { transform:scale(1); opacity:1; }
+    }
+  </style>
+</head>
+<body>
+<a href="index.html"><img src="./assets/images/arrow-ios-back.svg" alt=""></a>
+<h2>Order Details</h2>
+
+<div class="form-box">
+  <label>Full Name</label>
+  <input id="name">
+
+  <label>Email</label>
+  <input id="email">
+
+  <label>Phone Number</label>
+  <input id="phone">
+
+  <label>Address</label>
+  <textarea id="address"></textarea>
+
+  <label>Payment Method</label>
+  <select id="payment">
+    <option>Cash on Delivery</option>
+    <option>Bank Transfer</option>
+    <option>EasyPaisa</option>
+    <option>JazzCash</option>
+  </select>
+
+  <button type="button" onclick="GenerateBill()">Confirm Order</button>
+</div>
+
+<!-- BILL POPUP -->
+<div id="billPopup">
+  <div class="bill-box" id="billBox"></div>
+</div>
+
+<script>
+
+// REGEX → email validation example
+function IsValidEmail(email) {
+  let pattern = /^[\w.-]+@[\w.-]+\.\w+$/;
+  return pattern.test(email);
+}
+
+// ASSERTION → If data not found
+function Assert(condition, message) {
+  if (!condition) {
+    throw new Error("Assertion Failed: " + message);
+  }
+}
+
+// DESIGN BY CONTRACT → Pre-conditions
+function ValidateForm(name, email, phone, address) {
+  Assert(name !== "", "Name required");
+  Assert(email !== "", "Email required");
+  Assert(IsValidEmail(email), "Invalid email");
+  Assert(phone.length >= 10, "Phone must be at least 10 digits");
+  Assert(address.length >= 5, "Address too short");
+}
+
+// MAIN FUNCTION
+function GenerateBill() {
+    try {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let address = document.getElementById("address").value.trim();
+      let payment = document.getElementById("payment").value;
+
+      ValidateForm(name, email, phone, address);
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if(cart.length === 0) { alert("Your cart is empty!"); return; }
+
+      let total = 0;
+      let bill = `
+        <h2>Bloom - Order Receipt</h2>
+        <h3>Customer Details</h3>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Address:</b> ${address}</p>
+        <p><b>Payment Method:</b> ${payment}</p>
+        <hr>
+        <h3>Purchased Products</h3>
+      `;
+
+      cart.forEach(item => {
+        let cost = item.price * item.quantity;
+        total += cost;
+        bill += `<div class="bill-item"><span>${item.name} (x${item.quantity})</span><span>Rs. ${cost}</span></div>`;
+      });
+
+      bill += `<div class="bill-total">Total: Rs. ${total}</div>`;
+      bill += `<button onclick="CloseBill()">OK</button>`;
+
+      document.getElementById("billBox").innerHTML = bill;
+      document.getElementById("billPopup").style.display = "flex";
+
+      // Clear cart after purchase
+      localStorage.setItem("cart", JSON.stringify([]));
+
+    } catch(err) {
+      alert("Error: " + err.message);
+    }
+  }
+
+  function CloseBill() {
+    document.getElementById("billPopup").style.display = "none";
+    window.location.href = "thankyou.html";
+  }
+ 
+</script>
+
+</body>
+</html>

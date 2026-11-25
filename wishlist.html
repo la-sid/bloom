@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist page</title>
+</head>
+<style>
+    body{
+        background-color: rgb(234, 229, 223);
+    }
+    body img{
+        width: 50px;
+    }
+    a{
+        text-decoration: none;
+    }
+    h1{
+        text-align: center;
+        font-size: 40px;
+    }
+    .searchbar{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 5px 10px;
+        gap: 25px;
+        align-items: center;
+        box-shadow: 4px 4px 10px rgb(224, 220, 220);
+    }
+    .searchbar img{
+        position: absolute;
+        width: 27px;
+        left: 1%;
+    }
+    .searchbar input{
+        border: none;
+        outline: none;
+        font-size: 25px;
+        color: black;
+        padding: 5px;
+        width: 82%;
+        margin: 8px;
+        border-radius: 10px;
+        
+    }
+    .searchbar button{
+        all: unset;
+        background-color: rgb(51, 108, 89);
+        font-size: 20px;
+        padding: 8px 55px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .searchbar button:hover{
+           background-color: rgb(32, 74, 60);
+    }
+    
+    .cards{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px 40px;
+        gap: 40px;
+   
+    }
+
+    .card{
+        width: 20%;
+        height: 50vh;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid rgb(201, 201, 201);
+        box-shadow: 6px 6px 10px rgb(145, 138, 138);
+        padding: 12px;
+
+    }
+    .imagebox{
+        padding-left: 5px;
+        margin-top: 20px;
+        
+    }
+    .imagebox img{
+        width: 95%;
+        aspect-ratio: 9/8;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .cardcontent{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .cardcontent p{
+        line-height: 38px;
+        font-size: 18px;
+        font-weight:800;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .cardcontent img{
+        width: 30%;
+        height: 10vh;
+        margin-left: 105px;
+        margin-top: 5px;
+    }
+
+    
+</style>
+<body>
+    <a href="index.html"><img src="./assets/images/arrow-ios-back.svg" alt=""></a>
+    <h1>My Wishlist</h1>
+    <div class="searchbar">
+        <img src="./assets/icons/search.png" alt="">
+        <input type="text" placeholder="search here....">
+        <button>Search</button>
+    </div>
+    <div class="container">
+        <div class="cards">
+            <div class=" card card1">
+                <div class="imagebox">
+                    <img src="../assets/images/w3.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Lost Claus <br>Rs.1,350.00</p>
+                    <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card2">
+                <div class="imagebox">
+                <img src="./assets/images/oudattar.jpeg" alt="" >
+                </div>
+               <div class="cardcontent">
+                    <p>Oud Attar<br>Rs.13,500.00</p>
+                   <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card3">
+                <div class="imagebox">
+                <img src="./assets/images/w5.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>luxury candles<br>Rs.2,899.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card4">
+                <div class="imagebox">
+                <img src="./assets/images/w2.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Velour Oud<br>Rs.10,250.00</p>
+                    <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card5">
+                <div class="imagebox">
+                <img src="./assets/images/w8.jpg" alt="">
+                </div>
+                <div class="cardcontent">
+                    <p>Lost Claus <br>Rs.1,250.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card6">
+                <div class="imagebox">
+                <img src="./assets/images/w6.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                  <p>Raspberry Mist<br>Rs.1,799.00</p>
+                    <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card7">
+                <div class="imagebox">
+                <img src="./assets/images/w4.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>AmberCherry<br>Rs.950.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+            <div class=" card card8">
+                <div class="imagebox">
+                <img src="./assets/images/w7.jpg" alt="" >
+                </div>
+                <div class="cardcontent">
+                    <p>Hibiscus Mist <br>Rs.2,050.00</p>
+                      <a href=""> <img src="./assets/icons/add.jpg" alt="" ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

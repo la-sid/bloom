@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            background-image: url(./assets/images/aboutus.jpg) ;
+            width: 100%;
+            height: 55vh;
+            background-size: cover;
+            
+           
+        }
+
+        .main img {
+            width: 70px;
+        }
+
+        .main h1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 90px;
+            align-items: center;
+            /* Vertically center text */
+            color: rgb(6, 6, 6);
+            text-align: center;
+            font-size: 55px;
+            /* Adjust text size */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 750;
+            text-shadow: 3px 3px 5px white;
+        }
+
+
+        .about {
+            padding: 80px 10%;
+            background-color: rgb(234, 229, 223);
+            color: #444;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            color: rgb(83, 69, 53);
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+        }
+
+        .div1 {
+            width: 98%;
+            height: 55vh;
+            margin: 50px 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            box-shadow: 2px 2px 8px rgb(111, 128, 148);
+            gap: 20px;
+        }
+
+        .div1 .content {
+            width: 60%;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: justify;
+            padding: 20px;
+        }
+
+        .div1 .image {
+            width: 40%;
+            margin-left: 20px;
+        }
+
+        .div1 img {
+            width: 100%;
+        }
+
+        .mission {
+            background-color: rgba(159, 147, 130, 0.199);
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        .mission h2 {
+            color: rgb(53, 44, 34);
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .mission ul {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .mission ul li {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-left: 35px;
+        }
+
+        .mission ul li::before {
+            content: "🌸";
+        }
+
+        footer {
+            background-color: rgb(79, 65, 49);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <a href="index.html"><img src="./assets/images/arrow-ios-back.svg" alt=""></a>
+        <h1>About Us</h1>
+    </div>
+
+    <section class="about">
+        <h2>Who We Are</h2>
+        <p>
+            Welcome to <strong>Bloom</strong> — where fragrance meets artistry.
+            We believe every scent tells a story filled with beauty, confidence,
+            and emotion. Our perfumes, mists, and candles are thoughtfully crafted
+            to bring comfort, luxury, and calmness to your daily life.
+        </p>
+    </section>
+
+    <div class="div1">
+        <div class="content">
+            <h1>About Company</h1>
+            <p>Welcome to Bloom, where fragrance meets artistry. We believe that every scent tells a story — one that
+                captures emotions, memories, and moments. At Bloom, we craft luxurious perfumes, soothing body mists,
+                and hand-poured candles that bring beauty and calm into everyday life. <br> <br> Each of our products is
+                made
+                with care, using high-quality ingredients and unique blends designed to awaken your senses. Whether
+                you’re setting the mood with a candle, refreshing your day with a mist, or expressing yourself with a
+                signature perfume, Bloom adds a touch of elegance to every moment. Our mission is simple — to make your
+                world smell as beautiful as it feels.</p>
+        </div>
+
+        <div class="image">
+            <img src="./assets/images/photo-1615634260167-c8cdede054de.jpeg" alt="">
+        </div>
+    </div>
+
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <ul>
+            <li>To craft unique perfumes, body mists, and candles that add elegance to everyday life.</li>
+            <li>To use high-quality, skin-friendly, and long-lasting ingredients.</li>
+            <li>To inspire confidence, self-expression, and positivity through each fragrance.</li>
+            <li>To design handcrafted candles that create warmth and relaxation.</li>
+            <li>To follow eco-friendly and sustainable practices in all production stages.</li>
+            <li>To build a brand that connects with emotions and turns moments into memories.</li>
+        </ul>
+    </section>
+
+    <footer>
+        © 2025 Bloom Fragrances | All Rights Reserved
+    </footer>
+</body>
+
+</html>
